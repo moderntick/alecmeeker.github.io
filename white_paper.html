@@ -1222,112 +1222,158 @@ Actions: <span class="o">[</span>x<span class="o">]</span>spam <span class="o">[
 </ul>
 <h3 id="82-editorial-capabilities">8.2 Editorial Capabilities</h3>
 <p>The system enables capabilities previously unavailable to a small newsroom:</p>
-<p><strong>Comprehensive Competitive Intelligence:</strong>
-- Query "what have other outlets published about Bushwick rezoning?" and receive semantically ranked results across 1.79M articles
-- Identify coverage gaps by comparing topic presence across outlets
-- Track breaking stories across sources in near-real-time</p>
-<p><strong>Institutional Memory:</strong>
-- Search all prior communications with any source: "show me all emails with this council member"
-- Surface historical context for breaking stories automatically
-- Preserve knowledge through staff transitions via organization-level memories</p>
-<p><strong>Source Relationship Management:</strong>
-- Track 10K sender profiles with communication patterns
-- Identify who provides information about which topics
-- Detect relationship networks (who gets mentioned together)</p>
-<p><strong>Automated Event Tracking:</strong>
-- Calendar events extracted from emails with structured data
-- ICS attachments parsed into database records
-- Event flyers uploaded to Google Drive with database tracking</p>
+<p><strong>Comprehensive Competitive Intelligence:</strong></p>
+<ul>
+<li>Query "what have other outlets published about Bushwick rezoning?" and receive semantically ranked results across 1.79M articles</li>
+<li>Identify coverage gaps by comparing topic presence across outlets</li>
+<li>Track breaking stories across sources in near-real-time</li>
+</ul>
+<p><strong>Institutional Memory:</strong></p>
+<ul>
+<li>Search all prior communications with any source: "show me all emails with this council member"</li>
+<li>Surface historical context for breaking stories automatically</li>
+<li>Preserve knowledge through staff transitions via organization-level memories</li>
+</ul>
+<p><strong>Source Relationship Management:</strong></p>
+<ul>
+<li>Track 10K sender profiles with communication patterns</li>
+<li>Identify who provides information about which topics</li>
+<li>Detect relationship networks (who gets mentioned together)</li>
+</ul>
+<p><strong>Automated Event Tracking:</strong></p>
+<ul>
+<li>Calendar events extracted from emails with structured data</li>
+<li>ICS attachments parsed into database records</li>
+<li>Event flyers uploaded to Google Drive with database tracking</li>
+</ul>
 <h3 id="83-sustainability-implications">8.3 Sustainability Implications</h3>
 <p>For local news sustainability, the implications are significant:</p>
-<p><strong>Cost Structure:</strong>
-- AI API costs: ~$50-100/month for full system operation
-- Infrastructure: Commodity Mac + external SSD
-- No specialized engineering staff required for maintenance</p>
-<p><strong>Scalability:</strong>
-- Architecture supports adding outlets to scraping pipeline with config changes
-- Email volume can increase without architectural changes
-- Memory system improves with use rather than requiring retraining</p>
-<p><strong>Replicability:</strong>
-- All components use standard open-source technologies
-- No proprietary systems or vendor lock-in
-- Documentation enables adoption by other small newsrooms</p>
+<p><strong>Cost Structure:</strong></p>
+<ul>
+<li>AI API costs: ~$50-100/month for full system operation</li>
+<li>Infrastructure: Commodity Mac + external SSD</li>
+<li>No specialized engineering staff required for maintenance</li>
+</ul>
+<p><strong>Scalability:</strong></p>
+<ul>
+<li>Architecture supports adding outlets to scraping pipeline with config changes</li>
+<li>Email volume can increase without architectural changes</li>
+<li>Memory system improves with use rather than requiring retraining</li>
+</ul>
+<p><strong>Replicability:</strong></p>
+<ul>
+<li>All components use standard open-source technologies</li>
+<li>No proprietary systems or vendor lock-in</li>
+<li>Documentation enables adoption by other small newsrooms</li>
+</ul>
 <hr />
 <h2 id="9-ethical-considerations">9. Ethical Considerations</h2>
 <h3 id="91-ai-in-journalism">9.1 AI in Journalism</h3>
 <p>The use of AI in journalism raises legitimate concerns that this system addresses through architectural choices:</p>
-<p><strong>Human Judgment Preserved:</strong>
-- AI proposes; humans decide. No content publishes without human approval.
-- Draft responses require explicit send action after review.
-- Story pitches require editorial approval before article generation.</p>
-<p><strong>Accuracy Safeguards:</strong>
-- The <code>Question</code> tool lets the model ask for information rather than guess
-- Date awareness prevents responses to stale emails
-- Quality gates prevent learning from spurious signals</p>
-<p><strong>Voice Authenticity:</strong>
-- Few-shot learning from actual publisher responses
-- Anti-patterns explicitly blocked in writing instructions
-- Continuous learning from human corrections</p>
-<p><strong>Transparency:</strong>
-- All AI-generated content is reviewed before sending
-- No automated social media posting
-- Editorial decisions remain with humans</p>
+<p><strong>Human Judgment Preserved:</strong></p>
+<ul>
+<li>AI proposes; humans decide. No content publishes without human approval.</li>
+<li>Draft responses require explicit send action after review.</li>
+<li>Story pitches require editorial approval before article generation.</li>
+</ul>
+<p><strong>Accuracy Safeguards:</strong></p>
+<ul>
+<li>The <code>Question</code> tool lets the model ask for information rather than guess</li>
+<li>Date awareness prevents responses to stale emails</li>
+<li>Quality gates prevent learning from spurious signals</li>
+</ul>
+<p><strong>Voice Authenticity:</strong></p>
+<ul>
+<li>Few-shot learning from actual publisher responses</li>
+<li>Anti-patterns explicitly blocked in writing instructions</li>
+<li>Continuous learning from human corrections</li>
+</ul>
+<p><strong>Transparency:</strong></p>
+<ul>
+<li>All AI-generated content is reviewed before sending</li>
+<li>No automated social media posting</li>
+<li>Editorial decisions remain with humans</li>
+</ul>
 <h3 id="92-data-privacy">9.2 Data Privacy</h3>
-<p><strong>Email Privacy:</strong>
-- All email data remains on local infrastructure (no cloud processing of content)
-- Service account authentication isolates Gmail access
-- Sender profiles aggregate patterns without storing personal data</p>
-<p><strong>Source Protection:</strong>
-- Participant intelligence tracks relationships but not conversation content
-- Entity extraction identifies public figures, not private individuals
-- Memory system stores preferences, not sensitive information</p>
+<p><strong>Email Privacy:</strong></p>
+<ul>
+<li>All email data remains on local infrastructure (no cloud processing of content)</li>
+<li>Service account authentication isolates Gmail access</li>
+<li>Sender profiles aggregate patterns without storing personal data</li>
+</ul>
+<p><strong>Source Protection:</strong></p>
+<ul>
+<li>Participant intelligence tracks relationships but not conversation content</li>
+<li>Entity extraction identifies public figures, not private individuals</li>
+<li>Memory system stores preferences, not sensitive information</li>
+</ul>
 <h3 id="93-transparency">9.3 Transparency</h3>
-<p><strong>AI Assistance Disclosure:</strong>
-- Generated drafts are reviewed and edited by humans
-- The publisher retains full editorial responsibility
-- AI serves as research and drafting assistance, not authorship</p>
+<p><strong>AI Assistance Disclosure:</strong></p>
+<ul>
+<li>Generated drafts are reviewed and edited by humans</li>
+<li>The publisher retains full editorial responsibility</li>
+<li>AI serves as research and drafting assistance, not authorship</li>
+</ul>
 <hr />
 <h2 id="10-future-directions">10. Future Directions</h2>
 <h3 id="101-planned-enhancements">10.1 Planned Enhancements</h3>
-<p><strong>Short-term (2026 Q2):</strong>
-- Expanded RSVP automation for additional form types
-- Enhanced entity disambiguation using co-occurrence patterns
-- Mobile-friendly review interfaces for on-the-go approval</p>
-<p><strong>Medium-term (2026 H2):</strong>
-- Voice assistant integration for hands-free email triage
-- Automated source relationship cultivation reminders
-- Cross-publication collaboration features</p>
-<p><strong>Long-term:</strong>
-- Multi-newsroom knowledge sharing (privacy-preserving)
-- Investigative research automation
-- Community engagement intelligence</p>
+<p><strong>Short-term (2026 Q2):</strong></p>
+<ul>
+<li>Expanded RSVP automation for additional form types</li>
+<li>Enhanced entity disambiguation using co-occurrence patterns</li>
+<li>Mobile-friendly review interfaces for on-the-go approval</li>
+</ul>
+<p><strong>Medium-term (2026 H2):</strong></p>
+<ul>
+<li>Voice assistant integration for hands-free email triage</li>
+<li>Automated source relationship cultivation reminders</li>
+<li>Cross-publication collaboration features</li>
+</ul>
+<p><strong>Long-term:</strong></p>
+<ul>
+<li>Multi-newsroom knowledge sharing (privacy-preserving)</li>
+<li>Investigative research automation</li>
+<li>Community engagement intelligence</li>
+</ul>
 <h3 id="102-scaling-considerations">10.2 Scaling Considerations</h3>
 <p>The architecture supports scaling in several dimensions:</p>
-<p><strong>Horizontal Scaling:</strong>
-- Database-backed session management enables multiple workers
-- Celery task distribution scales embedding generation
-- Stateless API design supports load balancing</p>
-<p><strong>Multi-Newsroom:</strong>
-- Tenant isolation through database partitioning
-- Shared entity knowledge with newsroom-specific memories
-- Cost sharing for infrastructure while preserving editorial independence</p>
-<p><strong>Data Growth:</strong>
-- HNSW indexes scale sub-linearly with data size
-- Incremental processing prevents full-corpus reprocessing
-- Archival strategies for historical data management</p>
+<p><strong>Horizontal Scaling:</strong></p>
+<ul>
+<li>Database-backed session management enables multiple workers</li>
+<li>Celery task distribution scales embedding generation</li>
+<li>Stateless API design supports load balancing</li>
+</ul>
+<p><strong>Multi-Newsroom:</strong></p>
+<ul>
+<li>Tenant isolation through database partitioning</li>
+<li>Shared entity knowledge with newsroom-specific memories</li>
+<li>Cost sharing for infrastructure while preserving editorial independence</li>
+</ul>
+<p><strong>Data Growth:</strong></p>
+<ul>
+<li>HNSW indexes scale sub-linearly with data size</li>
+<li>Incremental processing prevents full-corpus reprocessing</li>
+<li>Archival strategies for historical data management</li>
+</ul>
 <h3 id="103-open-questions">10.3 Open Questions</h3>
-<p><strong>Technical:</strong>
-- Optimal memory consolidation strategies for long-running systems
-- Entity disambiguation at scale (millions of mentions)
-- Multi-model orchestration for cost/quality optimization</p>
-<p><strong>Editorial:</strong>
-- Appropriate boundaries for AI drafting vs. human writing
-- Community transparency expectations for AI-assisted journalism
-- Source relationship implications of AI-mediated communication</p>
-<p><strong>Sustainability:</strong>
-- Economic models for AI infrastructure in local news
-- Skills development for non-technical journalists
-- Maintenance burden for sophisticated systems</p>
+<p><strong>Technical:</strong></p>
+<ul>
+<li>Optimal memory consolidation strategies for long-running systems</li>
+<li>Entity disambiguation at scale (millions of mentions)</li>
+<li>Multi-model orchestration for cost/quality optimization</li>
+</ul>
+<p><strong>Editorial:</strong></p>
+<ul>
+<li>Appropriate boundaries for AI drafting vs. human writing</li>
+<li>Community transparency expectations for AI-assisted journalism</li>
+<li>Source relationship implications of AI-mediated communication</li>
+</ul>
+<p><strong>Sustainability:</strong></p>
+<ul>
+<li>Economic models for AI infrastructure in local news</li>
+<li>Skills development for non-technical journalists</li>
+<li>Maintenance burden for sophisticated systems</li>
+</ul>
 <hr />
 <h2 id="11-conclusion">11. Conclusion</h2>
 <p>This white paper documents nine months of building AI infrastructure for a hyperlocal newsroom. The resulting system demonstrates that sophisticated AI capabilities are achievable for small news operations, potentially transforming the economics of local journalism.</p>
