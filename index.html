@@ -131,62 +131,49 @@
         color: var(--text-bright); letter-spacing: -0.02em; margin-bottom: 40px;
     }
 
-    /* PAPERS — date and unified white paper card */
+    /* PAPERS — minimal layout */
+    .paper-section {
+        margin-bottom: 56px;
+    }
     .paper-date {
         font-family: var(--font-mono);
-        font-size: 0.72rem;
+        font-size: 0.7rem;
         color: var(--text-muted);
-        letter-spacing: 0.08em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
     }
-    .paper-unified {
-        background: var(--bg-card);
-        border: 1px solid var(--border-light);
-        border-radius: 6px;
-        overflow: hidden;
-        margin-bottom: 24px;
-    }
-    .paper-header {
-        display: block;
-        padding: 36px;
+    .paper-title {
+        font-family: var(--font-editorial);
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--text-bright);
         text-decoration: none;
-        position: relative;
+        display: inline-block;
+        margin-bottom: 24px;
+        letter-spacing: -0.02em;
     }
-    .paper-header::before {
-        content: ''; position: absolute; top: 0; left: 0; right: 0;
-        height: 3px; background: var(--accent); opacity: 0;
-        transition: opacity 0.2s;
-    }
-    .paper-header:hover::before { opacity: 1; }
-    .paper-header .paper-tag {
-        font-family: var(--font-mono); font-size: 0.65rem;
-        letter-spacing: 0.12em; text-transform: uppercase;
-        color: var(--accent); margin-bottom: 12px;
-    }
-    .paper-header h3 {
-        font-family: var(--font-editorial); font-size: 1.5rem; font-weight: 600;
-        color: var(--text-bright); line-height: 1.3; margin-bottom: 12px;
-    }
-    .paper-header .paper-desc {
-        font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65;
-        max-width: 720px; margin-bottom: 20px;
+    .paper-title:hover {
+        color: var(--accent);
     }
     .paper-stats {
-        display: flex; gap: 28px; padding-top: 16px;
-        border-top: 1px solid var(--border);
+        display: flex;
+        gap: 32px;
+        margin-bottom: 32px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--border);
     }
     .paper-stat-val {
-        font-family: var(--font-mono); font-size: 0.95rem; font-weight: 500; color: var(--accent);
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--accent);
     }
     .paper-stat-label {
-        font-size: 0.68rem; color: var(--text-muted);
-        text-transform: uppercase; letter-spacing: 0.05em;
-    }
-    .paper-sections {
-        padding: 24px 36px;
-        background: var(--bg-secondary);
-        border-top: 1px solid var(--border);
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
     }
     .section-list {
         list-style: none;
@@ -194,32 +181,21 @@
         margin: 0;
     }
     .section-list li {
-        padding: 12px 0;
-        border-bottom: 1px solid var(--border);
-        font-size: 0.92rem;
-        line-height: 1.5;
-    }
-    .section-list li:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-    .section-list li:first-child {
-        padding-top: 0;
+        padding: 10px 0;
+        font-size: 0.95rem;
     }
     .section-list a {
-        font-family: var(--font-editorial);
-        font-weight: 600;
-        color: var(--text-bright);
+        color: var(--text-secondary);
         text-decoration: none;
-        transition: color 0.2s;
     }
     .section-list a:hover {
         color: var(--accent);
     }
-    .section-list .section-desc {
+    .section-list .section-num {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
         color: var(--text-muted);
-        font-size: 0.85rem;
-        letter-spacing: 0.03em;
+        margin-right: 12px;
     }
 
     /* Dev blog card — full width */
@@ -422,31 +398,24 @@
         </div>
     </header>
 
-    <!-- PAPERS — front and center -->
+    <!-- PAPERS -->
     <section id="papers">
         <div class="section-inner">
-            <p class="paper-date">March 2026</p>
-
-            <!-- White paper — unified card with sections -->
-            <div class="paper-unified">
-                <a class="paper-header" href="white_paper.html">
-                    <h3>Building an AI-Powered Local Newsroom</h3>
-                    <p class="paper-desc">Comprehensive technical white paper documenting a 9-month, 321-commit development of AI infrastructure — covering multi-agent orchestration, semantic search across 8M+ chunks, adaptive memory architectures with 4-level scope hierarchy, and human-in-the-loop design philosophy.</p>
-                    <div class="paper-stats">
-                        <div><span class="paper-stat-val">255 GB</span><br><span class="paper-stat-label">Data Warehouse</span></div>
-                        <div><span class="paper-stat-val">1.79M</span><br><span class="paper-stat-label">Articles Indexed</span></div>
-                        <div><span class="paper-stat-val">8.14M</span><br><span class="paper-stat-label">Semantic Chunks</span></div>
-                        <div><span class="paper-stat-val">321</span><br><span class="paper-stat-label">Commits</span></div>
-                        <div><span class="paper-stat-val">75+</span><br><span class="paper-stat-label">News Outlets</span></div>
-                    </div>
-                </a>
-                <div class="paper-sections">
-                    <ul class="section-list">
-                        <li><a href="data_warehouse_report.html">Data Warehouse &amp; Ingestion Pipeline</a><span class="section-desc"> &mdash; PostgreSQL 17 + pgvector, Scrapy ingestion, 8M+ chunk semantic search</span></li>
-                        <li><a href="news_scanner_report.html">NYCNewsScanner &amp; Publisher</a><span class="section-desc"> &mdash; Multi-agent orchestration, 5W story extraction, adaptive memory</span></li>
-                        <li><a href="email_assistant_report.html">Email Assistant</a><span class="section-desc"> &mdash; AI-powered triage, voice-accurate drafting, Playwright automation</span></li>
-                    </ul>
+            <div class="paper-section">
+                <p class="paper-date">March 2026</p>
+                <a class="paper-title" href="white_paper.html">The AI-Powered Local Newsroom</a>
+                <div class="paper-stats">
+                    <div><span class="paper-stat-val">255 GB</span><br><span class="paper-stat-label">Data</span></div>
+                    <div><span class="paper-stat-val">1.79M</span><br><span class="paper-stat-label">Articles</span></div>
+                    <div><span class="paper-stat-val">8.14M</span><br><span class="paper-stat-label">Chunks</span></div>
+                    <div><span class="paper-stat-val">321</span><br><span class="paper-stat-label">Commits</span></div>
+                    <div><span class="paper-stat-val">75+</span><br><span class="paper-stat-label">Outlets</span></div>
                 </div>
+                <ul class="section-list">
+                    <li><span class="section-num">01</span><a href="data_warehouse_report.html">Data Warehouse &amp; Ingestion Pipeline</a></li>
+                    <li><span class="section-num">02</span><a href="news_scanner_report.html">NYCNewsScanner &amp; Publisher</a></li>
+                    <li><span class="section-num">03</span><a href="email_assistant_report.html">Email Assistant</a></li>
+                </ul>
             </div>
 
             <!-- Dev blog -->
