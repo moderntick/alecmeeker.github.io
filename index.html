@@ -131,32 +131,36 @@
         color: var(--text-bright); letter-spacing: -0.02em; margin-bottom: 40px;
     }
 
-    /* PAPERS — the main event */
-    .paper-featured {
-        padding: 36px; background: var(--bg-card);
-        border: 1px solid var(--border-light); border-radius: 6px;
-        text-decoration: none; display: block;
-        position: relative; overflow: hidden;
+    /* PAPERS — unified white paper card */
+    .paper-unified {
+        background: var(--bg-card);
+        border: 1px solid var(--border-light);
+        border-radius: 6px;
+        overflow: hidden;
         margin-bottom: 24px;
     }
-    .paper-featured::before {
+    .paper-header {
+        display: block;
+        padding: 36px;
+        text-decoration: none;
+        position: relative;
+    }
+    .paper-header::before {
         content: ''; position: absolute; top: 0; left: 0; right: 0;
         height: 3px; background: var(--accent); opacity: 0;
+        transition: opacity 0.2s;
     }
-    .paper-featured:hover {
-        border-color: var(--accent-border);
-    }
-    .paper-featured:hover::before { opacity: 1; }
-    .paper-featured .paper-tag {
+    .paper-header:hover::before { opacity: 1; }
+    .paper-header .paper-tag {
         font-family: var(--font-mono); font-size: 0.65rem;
         letter-spacing: 0.12em; text-transform: uppercase;
         color: var(--accent); margin-bottom: 12px;
     }
-    .paper-featured h3 {
+    .paper-header h3 {
         font-family: var(--font-editorial); font-size: 1.5rem; font-weight: 600;
         color: var(--text-bright); line-height: 1.3; margin-bottom: 12px;
     }
-    .paper-featured p {
+    .paper-header .paper-desc {
         font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65;
         max-width: 720px; margin-bottom: 20px;
     }
@@ -171,83 +175,42 @@
         font-size: 0.68rem; color: var(--text-muted);
         text-transform: uppercase; letter-spacing: 0.05em;
     }
-
-    /* Report cards grid */
-    .reports-grid {
-        display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-        margin-bottom: 24px;
-    }
-    .report-card {
-        padding: 28px; background: var(--bg-card);
-        border: 1px solid var(--border); border-radius: 6px;
-        text-decoration: none; display: flex; flex-direction: column; gap: 12px;
-        position: relative; overflow: hidden;
-    }
-    .report-card::before {
-        content: ''; position: absolute; top: 0; left: 0; right: 0;
-        height: 2px; background: var(--accent); opacity: 0;
-    }
-    .report-card:hover {
-        border-color: var(--accent-border);
-    }
-    .report-card:hover::before { opacity: 1; }
-    .report-card .report-tag {
-        font-family: var(--font-mono); font-size: 0.62rem;
-        letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
-    }
-    .report-card h4 {
-        font-family: var(--font-editorial); font-size: 1.1rem; font-weight: 600;
-        color: var(--text-bright); line-height: 1.3;
-    }
-    .report-card p {
-        font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; flex-grow: 1;
-    }
-    .report-card .read-link {
-        font-family: var(--font-mono); font-size: 0.72rem;
-        color: var(--accent); letter-spacing: 0.03em;
-    }
-
-    /* Breakout section - connects white paper to technical deep dives */
-    .breakout-section {
-        position: relative;
-        margin-top: 48px;
-        padding-top: 32px;
-    }
-    .breakout-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 1px;
-        height: 24px;
-        background: linear-gradient(to bottom, var(--accent-dim), transparent);
-    }
-    .breakout-header {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin-bottom: 24px;
-        padding: 16px 24px;
+    .paper-sections {
+        padding: 24px 36px;
         background: var(--bg-secondary);
-        border: 1px solid var(--border);
-        border-radius: 6px;
+        border-top: 1px solid var(--border);
     }
-    .breakout-icon {
-        font-size: 1.4rem;
-        color: var(--accent);
+    .section-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
-    .breakout-header-text h4 {
+    .section-list li {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.92rem;
+        line-height: 1.5;
+    }
+    .section-list li:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    .section-list li:first-child {
+        padding-top: 0;
+    }
+    .section-list a {
         font-family: var(--font-editorial);
-        font-size: 1rem;
         font-weight: 600;
         color: var(--text-bright);
-        margin-bottom: 4px;
+        text-decoration: none;
+        transition: color 0.2s;
     }
-    .breakout-header-text p {
-        font-family: var(--font-mono);
-        font-size: 0.72rem;
+    .section-list a:hover {
+        color: var(--accent);
+    }
+    .section-list .section-desc {
         color: var(--text-muted);
+        font-size: 0.85rem;
         letter-spacing: 0.03em;
     }
 
@@ -457,48 +420,25 @@
             <p class="section-label">Documentation</p>
             <h2 class="section-title">Papers &amp; Reports</h2>
 
-            <!-- White paper — featured -->
-            <a class="paper-featured" href="white_paper.html">
-                <p class="paper-tag">White Paper</p>
-                <h3>Building an AI-Powered Local Newsroom</h3>
-                <p>Comprehensive technical white paper documenting a 9-month, 321-commit development of AI infrastructure — covering multi-agent orchestration, semantic search across 8M+ chunks, adaptive memory architectures with 4-level scope hierarchy, and human-in-the-loop design philosophy.</p>
-                <div class="paper-stats">
-                    <div><span class="paper-stat-val">255 GB</span><br><span class="paper-stat-label">Data Warehouse</span></div>
-                    <div><span class="paper-stat-val">1.79M</span><br><span class="paper-stat-label">Articles Indexed</span></div>
-                    <div><span class="paper-stat-val">8.14M</span><br><span class="paper-stat-label">Semantic Chunks</span></div>
-                    <div><span class="paper-stat-val">321</span><br><span class="paper-stat-label">Commits</span></div>
-                    <div><span class="paper-stat-val">75+</span><br><span class="paper-stat-label">News Outlets</span></div>
-                </div>
-            </a>
-
-            <!-- Technical Deep Dives - breakout sections from the white paper -->
-            <div class="breakout-section">
-                <div class="breakout-header">
-                    <span class="breakout-icon">&#9662;</span>
-                    <div class="breakout-header-text">
-                        <h4>Technical Deep Dives</h4>
-                        <p>Detailed breakouts from the white paper covering each system component</p>
+            <!-- White paper — unified card with sections -->
+            <div class="paper-unified">
+                <a class="paper-header" href="white_paper.html">
+                    <h3>Building an AI-Powered Local Newsroom</h3>
+                    <p class="paper-desc">Comprehensive technical white paper documenting a 9-month, 321-commit development of AI infrastructure — covering multi-agent orchestration, semantic search across 8M+ chunks, adaptive memory architectures with 4-level scope hierarchy, and human-in-the-loop design philosophy.</p>
+                    <div class="paper-stats">
+                        <div><span class="paper-stat-val">255 GB</span><br><span class="paper-stat-label">Data Warehouse</span></div>
+                        <div><span class="paper-stat-val">1.79M</span><br><span class="paper-stat-label">Articles Indexed</span></div>
+                        <div><span class="paper-stat-val">8.14M</span><br><span class="paper-stat-label">Semantic Chunks</span></div>
+                        <div><span class="paper-stat-val">321</span><br><span class="paper-stat-label">Commits</span></div>
+                        <div><span class="paper-stat-val">75+</span><br><span class="paper-stat-label">News Outlets</span></div>
                     </div>
-                </div>
-                <div class="reports-grid">
-                    <a class="report-card" href="data_warehouse_report.html">
-                        <span class="report-tag">Deep Dive &mdash; Section 3</span>
-                    <h4>Data Warehouse &amp; Ingestion Pipeline</h4>
-                    <p>PostgreSQL 17 + pgvector architecture, Scrapy-based article ingestion, Gmail API email extraction, and the 8M+ chunk semantic search system with HNSW vector indexes.</p>
-                    <span class="read-link">Read report &#8594;</span>
                 </a>
-                <a class="report-card" href="news_scanner_report.html">
-                        <span class="report-tag">Deep Dive &mdash; Section 4</span>
-                        <h4>NYCNewsScanner &amp; Publisher</h4>
-                    <p>Multi-agent news scanning with Claude Agent SDK and LangGraph. Parallel researcher agents, structured 5W story extraction, and adaptive memory with human feedback loops.</p>
-                    <span class="read-link">Read report &#8594;</span>
-                </a>
-                <a class="report-card" href="email_assistant_report.html">
-                        <span class="report-tag">Deep Dive &mdash; Section 5</span>
-                        <h4>Email Assistant</h4>
-                    <p>AI-powered email processing for 200+ daily emails. Intelligent triage, voice-accurate drafting from 11K+ examples, Playwright browser automation, and skill-based task handling.</p>
-                    <span class="read-link">Read report &#8594;</span>
-                    </a>
+                <div class="paper-sections">
+                    <ul class="section-list">
+                        <li><a href="data_warehouse_report.html">Data Warehouse &amp; Ingestion Pipeline</a><span class="section-desc"> &mdash; PostgreSQL 17 + pgvector, Scrapy ingestion, 8M+ chunk semantic search</span></li>
+                        <li><a href="news_scanner_report.html">NYCNewsScanner &amp; Publisher</a><span class="section-desc"> &mdash; Multi-agent orchestration, 5W story extraction, adaptive memory</span></li>
+                        <li><a href="email_assistant_report.html">Email Assistant</a><span class="section-desc"> &mdash; AI-powered triage, voice-accurate drafting, Playwright automation</span></li>
+                    </ul>
                 </div>
             </div>
 
